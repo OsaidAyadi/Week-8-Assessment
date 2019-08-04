@@ -8,6 +8,8 @@ function sum(x,y){
   return x+y
 }
 
+
+
 2) 
 function consoleReturn(x,y){
   console.log(x)
@@ -37,18 +39,39 @@ var object2={
 
 //1) WRITE YOUR CODE UNDER THIS LINE         
 
+sum = (x,y) => {
+  return x+y;
+}
+
 //2) WRITE YOUR CODE UNDER THIS LINE         
+
+consoleReturn= (x,y)=>{
+  console.log(x)
+  return y
+}
 
 //3) WRITE YOUR CODE UNDER THIS LINE         
 
-//4) WRITE YOUR CODE UNDER THIS LINE         
+let name="Alex"
+let age=25
+let result = `My name is: ${name} and my age is ${age}`
+
+//4) WRITE YOUR CODE UNDER THIS LINE    
+
+let food="Fried Chicken";
+let color="Blue";
+let object={
+  food,
+  color
+}
 
 //5) WRITE YOUR CODE UNDER THIS LINE         
 
-
-
-
-
+let object2={
+  multi(a,b){
+    return a * b
+  }
+}
 
 
 /* Q2:
@@ -74,8 +97,24 @@ Output =>
 
 // WRITE YOUR CODE UNDER THIS LINE
 
+class Computer {
+  
+   constructor (OS,RAM,CPU) {
+    let theOs =OS;
+    let theRam =RAM;
+    let theCpu = CPU;
+  };
 
+  doubleRAM(RAM) {
+    RAM *= 2;
+    return RAM;
+  };
 
+}
+
+computer1 = Computer("Windows",16,"I7");
+computer1 = Computer("Linux",8,"I5");
+computer1 = Computer("Mac",4,"I3");
 
 
 
@@ -93,15 +132,22 @@ export default class App extends Component {
     title: 'ELIZABETH GREENE',
     todos: ['eat', 'eat eat', 'eact again']
   };
+
   changeTitle() {
-    state.title = 'AGGREGOR ZOLDYCK'
+    this.setState.title = 'AGGREGOR ZOLDYCK'
   }
+
   render() {
     return (
-      <h1>App Component => state.title</h1>
+<>
+      <h1>App Component => {this.state.title}</h1>
+
       <button onClick={this.changeTitle}>Change Title</button>
-      <Tasks tasks={this.todos} changeTitleFromChild={this.changeTitle} />
-    );
+      
+      <Tasks tasks={this.state.todos} changeTitleFromChild={this.changeTitle} />
+      
+      </>
+      );
   }
 }
 
@@ -113,15 +159,15 @@ class Tasks extends Component {
     day: "Sat"
   };
   changeDay() {
-    day = 'Sun'
+    this.setState.day = 'Sun'
   }
 
   render() {
     return (
       <div>
-        <h1>Tasks Component => state.day</h1>
+        <h1>Tasks Component => {this.state.day}</h1>
         <button onClick={this.changeDay}>Change Tasks State</button>
-        <button onClick={changeTitle}>Change App State</button>
+        <button onClick={this.props.changeTitleFromChild}>Change App State</button>
       </div>
     );
   }
